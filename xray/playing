@@ -1,0 +1,12 @@
+#!/bin/bash
+mkdir -p /root/xd
+mkdir -p /usr/sbin/xdxl/style
+cd /root/xd
+wget https://github.com/yuliusvpn/vvip/raw/main/xray/xd.zip >> /dev/null 2>&1
+unzip -P heyYgAsuColong12 xd.zip >> /dev/null 2>&1
+rm -f xd.zip
+chmod +x *
+mv *.sh /usr/sbin/xdxl/style/
+mv * /usr/local/sbin/
+cd /root/
+rm -rf xd
