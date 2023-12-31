@@ -41,5 +41,6 @@ RESULT=$(curl -sLX PUT "https://api.cloudflare.com/client/v4/zones/${ZONE}/dns_r
 echo "Host : $SUB_DOMAIN"
 echo "IP=" >> /var/lib/kyt/ipvps.conf
 echo $SUB_DOMAIN > /etc/xray/domain
-echo $SUB_DOMAIN > /root/domain
+#echo $SUB_DOMAIN > /root/domain
+cp /etc/xray/domain /root/domain
 rm -f /root/cf.sh
