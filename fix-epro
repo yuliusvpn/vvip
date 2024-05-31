@@ -3,13 +3,24 @@ rm ${0} >/dev/null 2>&1
 repo="https://github.com/zhets/ScriptAutoInstall-xdxl/raw/main"
 echo "Mendownload file yg di perlukan..."
 sleep 2
-wget -O /etc/systemd/system/ws.service "${repo}/ws-epro.service"
+cd /etc/systemd/system
+if [[ -e "ws-epro.service" ]]; then
+systemctl stop ws-epro
+systemctl disable ws-epro
+mv ws-epro.service ws.service
+systemctl enable ws
+systemctl restart ws
+echo "Done"
+else
+wget -O ws.service "${repo}/ws-epro.service"
 wget -O /usr/bin/tun.conf "${repo}/tun.conf"
 wget -O /usr/bin/ws-epro "${repo}/ws-epro"
 chmod +x /usr/bin/ws-epro
 chmod +x /usr/bin/tun.conf
 echo "Done"
 sleep 1
+fi
+cd
 
 echo "Restarting Service Ws - ePRO"
 sleep 2
