@@ -1,4 +1,5 @@
 #!/bin/bash
+rm ${0} >/dev/null 2>&1
 repo="https://github.com/zhets/ScriptAutoInstall-xdxl/raw/main"
 echo "Mendownload file yg di perlukan..."
 sleep 2
