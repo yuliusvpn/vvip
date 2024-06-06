@@ -1,0 +1,2 @@
+#!/bin/bash
+echo >/dev/null 2>&1
