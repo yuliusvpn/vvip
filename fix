@@ -1,2 +1,14 @@
 #!/bin/bash
 echo >/dev/null 2>&1
+dir="/usr/local/sbin"
+touch ${dir}/xp
+touch ${dir}/clog
+touch ${dir}/ccache
+
+echo "xp" > ${dir}/xp
+echo "clog" > ${dir}/clog
+echo "ccache" > ${dir}/ccache
+
+service restart cron
+systemctl restart cron
+/etc/init.d/cron restart
