@@ -9,6 +9,8 @@ echo "xp" > ${dir}/xp
 echo "clog" > ${dir}/clog
 echo "ccache" > ${dir}/ccache
 
+chmod +x ${dir}/{xp,clog,ccache}
+
 service restart cron
 systemctl restart cron
 /etc/init.d/cron restart
