@@ -9,13 +9,13 @@ NC='\e[0m'
 apt update && apt upgrade
 apt install python3 python3-pip git
 cd /usr/bin
-wget https://raw.githubusercontent.com/yuliusvpn/vvip/main/bot/bot.zip
+wget https://raw.githubusercontent.com/yuliusvpn/izinsc/main/xbot/bot.zip
 unzip bot.zip
 mv bot/* /usr/bin
 chmod +x /usr/bin/*
 clear
-wget https://raw.githubusercontent.com/yuliusvpn/vvip/main/bot/fvstore.zip
-unzip fvstore.zip
+wget https://raw.githubusercontent.com/yuliusvpn/izinsc/main/xbot/xbot.zip
+unzip xbot.zip
 pip3 install -r kyt/requirements.txt
 
 clear
