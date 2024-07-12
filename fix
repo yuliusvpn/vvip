@@ -4,16 +4,23 @@ dir="/usr/local/sbin"
 touch ${dir}/xp
 touch ${dir}/clog
 touch ${dir}/ccache
-
 echo "xp" > ${dir}/xp
 echo "clog" > ${dir}/clog
 echo "ccache" > ${dir}/ccache
-
 chmod +x ${dir}/{xp,clog,ccache}
-
 service restart cron
 systemctl restart cron
 /etc/init.d/cron restart
-
 cp /bin/gzip /bin/xzz
 curl -sS ipv4.icanhazip.com -o /root/.myip
+GITHUB_CMD="https://raw.githubusercontent.com/izulx1/autoscript/master/"
+source /etc/os-release
+if [[ ${ID} == "ubuntu" ]]; then
+apt update
+apt install haproxy -y
+wget -q -O /usr/sbin/haproxy "${GITHUB_CMD}haproxy/haproxy2.4-ubuntu"
+elif [[ ${ID} == "debian" ]]; then
+apt update
+apt install haproxy -y
+wget -q -O /usr/sbin/haproxy "${GITHUB_CMD}haproxy/haproxy2.2-debian"
+fi
