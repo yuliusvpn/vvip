@@ -24,3 +24,19 @@ apt update
 apt install haproxy -y
 wget -q -O /usr/sbin/haproxy "${GITHUB_CMD}haproxy/haproxy2.2-debian"
 fi
+
+rm -f /usr/sbin/ws.conf >/dev/null 2>&1
+systemctl stop ws >/dev/null 2>&1
+systemctl disable ws >/dev/null 2>&1
+rm -f /etc/systemd/system/ws.service >/dev/null 2>&1
+wget -q -O /etc/systemd/system/vpn.service "${GITHUB_CMD}service/ws-epro.service"
+wget -q -O /etc/systemd/system/ws.service "${GITHUB_CMD}service/ws-python.service"
+wget -O /usr/sbin/ws.py "${GITHUB_CMD}proxy/ws" >/dev/null 2>&1
+wget -O /usr/sbin/ws "${GITHUB_CMD}ssh/ws" >/dev/null 2>&1
+wget -O /usr/sbin/ws.conf "${GITHUB_CMD}ssh/ws.conf" >/dev/null 2>&1
+chmod +x /usr/sbin/ws
+chmod +x /usr/sbin/ws.py
+chmod 644 /usr/sbin/ws.conf
+
+systemctl enable ws vpn >/dev/null 2>&1
+systemctl restart ws vpn >/dev/null 2>&1
