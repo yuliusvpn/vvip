@@ -18,7 +18,7 @@ PASS = ''
 BUFLEN = 4096 * 4
 TIMEOUT = 60
 DEFAULT_HOST = '127.0.0.1:109'
-RESPONSE = (b'HTTP/1.1 101 <b><i><font color="yellow">XDTunnel Autoscript</font></b>\r\n'
+RESPONSE = (b'HTTP/1.1 101 <b><i><font color="yellow">YULIUS Autoscript</font></b>\r\n'
             b'Upgrade: websocket\r\n'
             b'Connection: Upgrade\r\n'
             b'Sec-WebSocket-Accept: foo\r\n\r\n')
